@@ -954,7 +954,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"CupCake_DEX_contracts/cupexDEX.sol": "CupexDEX"
+			"CupCake_DEX_contracts/CupexDEX.sol": "CupexDEX"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -962,34 +962,42 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
-		"CupCake_DEX_contracts/anyERC20Token.sol": {
-			"keccak256": "0xc84a15a0474db910642f44e6cb0f7c5f4321834e2e43e3ae94c9d38e79d2bb20",
+		"CupCake_DEX_contracts/AnyERC20Token.sol": {
+			"keccak256": "0xeda0ba61027271006fa71e53ac0f47119ba1f0a1866a9b98cb055a626f059a10",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://33281037263fbbf83560b00a4652e4d6aaad59970f0144cfd8e2ec7fa16cdf27",
-				"dweb:/ipfs/QmTx5Y7HQUD1pD3ChdWGefKa3RePiRa2zq38NtdkRwmLrA"
+				"bzz-raw://05a6b2da28c9eb08693a7fa39f8b941f451b7f87af8a813b936d3fc7164cf915",
+				"dweb:/ipfs/QmPJzpSzXRn1JTAuTeqqcCD1G7NWVzcJfKFR4bChLZvhTZ"
 			]
 		},
-		"CupCake_DEX_contracts/cupexDEX.sol": {
-			"keccak256": "0xb25c3ef8793f757424ac27330a7c60ec1b3eb3fb65d2ab6b17cd98685827b239",
+		"CupCake_DEX_contracts/CupexDEX.sol": {
+			"keccak256": "0x09ec4c0385fdf10fee53d192515a90a2c2be33a2209ab9525714982ffda362a5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0c473e7d8c4e3049c546caba3fa65f213ff5fb619c3a2c37dabcd6fdb1ef8de1",
-				"dweb:/ipfs/QmQyUSmL6o5xnwzCumcJ74UMtX7raftW6msF5zYWpVQtAe"
+				"bzz-raw://46d01afe63c3bdcfd40c4dc4b3a17a3a6bb96a9cd5e595b08887c6943a44be4b",
+				"dweb:/ipfs/QmapT4NodVEXGCrGuiivtsv4R5GNALp5LHVXm1MMoccFL4"
 			]
 		},
-		"CupCake_DEX_contracts/cupexERC1155.sol": {
-			"keccak256": "0xb9f443d3594785a152f1b8a19e2b1213ddf25dcc082546351a95370c592ad420",
+		"CupCake_DEX_contracts/CupexERC1155.sol": {
+			"keccak256": "0xd7ba8b700082c4c824ee24c165b5cf805f0ccf2a570e406c92f48408bea2cc32",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://96b2bd7ea72a9ab99d2870a27545a2b7039347f4a3d7eea220748c13eb2c96fb",
-				"dweb:/ipfs/Qmf5iNVYvvrFxM2TgpG4HX7oM9ghe635L6vvtj5FvgjbDU"
+				"bzz-raw://573ec32eef01e3fb46a44d3da3f3311dea04f3bec599bf52e0b685aa50fc4c44",
+				"dweb:/ipfs/QmSwrBaw6iCw4M6y2HPJJS5U2kYf7bUBkssWnNo95BetC6"
+			]
+		},
+		"CupCake_DEX_contracts/IAnyERC20Token.sol": {
+			"keccak256": "0xc5dba1063a7683dc742479ee66ea57a1b3cec477a119e2f6a065517e34a2b60d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://48fb5a194936e87590913a0e361a18cd753ed4d510e68dabf39842dd239befa3",
+				"dweb:/ipfs/QmQtdhU6QZQdze8Aix91AtxEZGDeJbr2zVh4H5QkfbQaqt"
 			]
 		},
 		"CupCake_DEX_contracts/openzeppelin-contracts-4.6.0/contracts/security/ReentrancyGuard.sol": {

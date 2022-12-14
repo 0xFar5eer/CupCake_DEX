@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-import "./anyERC20Token.sol";
-import "./cupexERC1155.sol";
+import "./AnyERC20Token.sol";
+import "./IAnyERC20Token.sol";
+import "./CupexERC1155.sol";
 import "./openzeppelin-contracts-4.6.0/contracts/token/ERC20/IERC20.sol";
 import "./openzeppelin-contracts-4.6.0/contracts/security/ReentrancyGuard.sol";
 
