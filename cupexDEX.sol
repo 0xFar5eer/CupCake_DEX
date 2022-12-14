@@ -6,7 +6,7 @@ import "./cupexERC1155.sol";
 import "./openzeppelin-contracts-4.6.0/contracts/token/ERC20/IERC20.sol";
 import "./openzeppelin-contracts-4.6.0/contracts/security/ReentrancyGuard.sol";
 
-contract CupexDEX is cupexERC1155, ReentrancyGuard {
+contract CupexDEX is CupexERC1155, ReentrancyGuard {
   address constant DEAD_ADDRESS = address(0xDEAD); // here can be well known null address, nobody has access to it
   uint256 constant MINIMUM_LIQUIDITY = 1_000;
 

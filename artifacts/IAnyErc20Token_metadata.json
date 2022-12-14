@@ -126,6 +126,24 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "_to",
 						"type": "address"
 					},
@@ -239,7 +257,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"CupCake_DEX_contracts/anyERC20Token.sol": "IAnyErc20Token"
+			"CupCake_DEX_contracts/IAnyERC20Token.sol": "IAnyErc20Token"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -253,20 +271,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"CupCake_DEX_contracts/anyERC20Token.sol": {
-			"keccak256": "0x2fd4b2957980631a43d9b6131be56eeb0e9b1b1b19d39ad8ed1b84e0d1e07fb7",
+		"CupCake_DEX_contracts/IAnyERC20Token.sol": {
+			"keccak256": "0xc5dba1063a7683dc742479ee66ea57a1b3cec477a119e2f6a065517e34a2b60d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f8943c203a0ad9c9013497309b1f1719197438c2fd9e6364f622063f3dd670e5",
-				"dweb:/ipfs/QmTCEhoMCq8DLCTvaqCTnNCXuzhsAg1k8FWhrHEU7Ffb5U"
-			]
-		},
-		"CupCake_DEX_contracts/openzeppelin-contracts-4.6.0/contracts/token/ERC20/ERC20.sol": {
-			"keccak256": "0xe0c8b625a79bac0fe80f17cfb521e072805cc9cef1c96a5caf45b264e74812fa",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://12fd1efc9ad061ef675bd50fb0c8e3c6f2952a09f8df0e3c688b8d81b8918838",
-				"dweb:/ipfs/QmawN6PjTwy91pU7ANjCSgbsLc8TDA6hwu9GsFFaNSuhb5"
+				"bzz-raw://48fb5a194936e87590913a0e361a18cd753ed4d510e68dabf39842dd239befa3",
+				"dweb:/ipfs/QmQtdhU6QZQdze8Aix91AtxEZGDeJbr2zVh4H5QkfbQaqt"
 			]
 		},
 		"CupCake_DEX_contracts/openzeppelin-contracts-4.6.0/contracts/token/ERC20/IERC20.sol": {
@@ -275,22 +285,6 @@
 			"urls": [
 				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
 				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
-			]
-		},
-		"CupCake_DEX_contracts/openzeppelin-contracts-4.6.0/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
-				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
-			]
-		},
-		"CupCake_DEX_contracts/openzeppelin-contracts-4.6.0/contracts/utils/Context.sol": {
-			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
-				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		}
 	},
