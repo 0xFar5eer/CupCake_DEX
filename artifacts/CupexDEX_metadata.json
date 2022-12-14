@@ -977,11 +977,11 @@
 			]
 		},
 		"CupCake_DEX_contracts/CupexDEX.sol": {
-			"keccak256": "0x09ec4c0385fdf10fee53d192515a90a2c2be33a2209ab9525714982ffda362a5",
+			"keccak256": "0x1293f98c9eae72bee0b0bf9b949ec5e2f0b1b94ff6a6a1fbc0d4132526c1ef79",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://46d01afe63c3bdcfd40c4dc4b3a17a3a6bb96a9cd5e595b08887c6943a44be4b",
-				"dweb:/ipfs/QmapT4NodVEXGCrGuiivtsv4R5GNALp5LHVXm1MMoccFL4"
+				"bzz-raw://ecfe7b2211a7f00370f7d5a22c6fd4a121f4f1eb35933307379211ee15d566e3",
+				"dweb:/ipfs/QmWvSfZNnvNdWN3fajkfcXhhpvSJyMA6HE2xXudFwWtKnv"
 			]
 		},
 		"CupCake_DEX_contracts/CupexERC1155.sol": {

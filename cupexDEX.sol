@@ -11,7 +11,7 @@ contract CupexDEX is CupexERC1155, ReentrancyGuard {
   address constant DEAD_ADDRESS = address(0xDEAD); // here can be well known null address, nobody has access to it
   uint256 constant MINIMUM_LIQUIDITY = 1_000;
 
-  // 0x0000000000000000000000000000000000000000 1000000000000000000
+  // 0x0000000000000000000000000000000000000000
   IERC20 constant NATIVE_TOKEN = IERC20(address(0)); // we use null address for native tokens
 
   IERC20 public cupexToken;
@@ -826,10 +826,10 @@ contract CupexDEX is CupexERC1155, ReentrancyGuard {
 
   function test1_CreateTokensAndPools() public {
     IAnyErc20Token testTokenIn = IAnyErc20Token(
-      address(new AnyErc20Token("TokenIn", "USDC"))
+      address(new AnyErc20Token("USDC", "USDC"))
     );
     IAnyErc20Token testTokenOut = IAnyErc20Token(
-      address(new AnyErc20Token("TokenOut", "DAI"))
+      address(new AnyErc20Token("DAI", "DAI"))
     );
     cupexToken = IAnyErc20Token(address(new AnyErc20Token("CUPEX", "CUPEX")));
 
