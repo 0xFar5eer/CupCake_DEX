@@ -177,9 +177,10 @@ contract CupexDEX is cupexERC1155, ReentrancyGuard {
     _safeTokenTransferFromMsgSender(_tokenAddr, _amountTokensIn);
 
     // CUPEX token does not require additional checks
+    // thats why we can use regular transferFrom call
     cupexToken.transferFrom(msg.sender, address(this), _amountCupexTokensIn);
 
-    // minting ERC1155 token for user
+    // minting ERC1155 LP token for user
     _mint(_transferTo, poolId, amountOfLiquidityToMint, "");
 
     emit LiquidityAdded(
@@ -705,7 +706,6 @@ contract CupexDEX is cupexERC1155, ReentrancyGuard {
     IERC20 _tokenOut,
     uint256 _amountIn
   ) public view returns (uint256) {
-    // we can swap the token to itself but it does not make sense to do so
     require(_tokenIn != _tokenOut, "Can't swap the same token to itself");
 
     uint256 reservesOut;
