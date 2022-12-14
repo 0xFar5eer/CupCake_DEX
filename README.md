@@ -30,7 +30,6 @@ NATIVE: 0x0000000000000000000000000000000000000000
     )
     public
     payable
-    nonReentrant // re-entrancy protection
     returns (uint256)
   - function removeLiquidity(
     IERC20 \_tokenAddr,
@@ -40,7 +39,6 @@ NATIVE: 0x0000000000000000000000000000000000000000
     address \_transferTo
     )
     public
-    nonReentrant // re-entrancy protection
     returns (uint256, uint256)
   - Swap 100 USDC --> YYY DAI: function swapExactTokensForTokens(
     IERC20 \_tokenIn,
@@ -51,7 +49,6 @@ NATIVE: 0x0000000000000000000000000000000000000000
     )
     public
     payable
-    nonReentrant // re-entrancy protection
     returns (uint256)
   - Swap XXX USDC --> 100 DAI: function swapTokensForExactTokens(
     IERC20 \_tokenIn,
@@ -62,7 +59,6 @@ NATIVE: 0x0000000000000000000000000000000000000000
     )
     public
     payable
-    nonReentrant // re-entrancy protection
     returns (uint256)
   - get XXX, 100 USDC --> XXX DAI: function getExactTokensForTokens(
     IERC20 \_tokenIn,
