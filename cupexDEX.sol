@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
+import "./anyERC20Token.sol";
 import "./cupexERC1155.sol";
 import "./openzeppelin-contracts-4.6.0/contracts/token/ERC20/IERC20.sol";
 import "./openzeppelin-contracts-4.6.0/contracts/security/ReentrancyGuard.sol";
@@ -654,14 +655,14 @@ contract CupexDEX is cupexERC1155, ReentrancyGuard {
     return tokenBalanceBefore;
   }
 
-  function getListOfActiveTokens() public view returns (IERC20[]) {
-    IERC20[] listOfTokens;
+  function getListOfActiveTokens() public view returns (IERC20[] memory) {
+    IERC20[] memory listOfTokens = new IERC20[](listOfPools.length + 1);
 
     // adding native token
-    listOfTokens.push(IERC20(NATIVE_TOKEN));
+    listOfTokens[0] = IERC20(NATIVE_TOKEN);
 
     // adding core token
-    listOfTokens.push(IERC20(CUPEX_TOKEN));
+    listOfTokens[1] = IERC20(cupexToken);
 
     for (uint256 i; i < listOfPools.length; i++) {
         Pool storage pool = listOfPools[i];
@@ -670,7 +671,7 @@ contract CupexDEX is cupexERC1155, ReentrancyGuard {
         }
 
         // adding all tokens in pools with positive liquidity
-        listOfTokens.push(pool.tokenInPool);
+        listOfTokens[i + 2] = pool.tokenInPool;
     }
 
     return listOfTokens;
@@ -823,17 +824,17 @@ contract CupexDEX is cupexERC1155, ReentrancyGuard {
   /* ///////////////////////////////////// */
 
   function test1_CreateTokensAndPools() public {
-    ITestErc20Token testTokenIn = ITestErc20Token(
-      address(new TestErc20Token("TokenIn", "USDC"))
+    IAnyErc20Token testTokenIn = IAnyErc20Token(
+      address(new AnyErc20Token("TokenIn", "USDC"))
     );
-    ITestErc20Token testTokenOut = ITestErc20Token(
-      address(new TestErc20Token("TokenOut", "DAI"))
+    IAnyErc20Token testTokenOut = IAnyErc20Token(
+      address(new AnyErc20Token("TokenOut", "DAI"))
     );
-    cupexToken = ITestErc20Token(address(new TestErc20Token("CUPEX", "CUPEX")));
+    cupexToken = IAnyErc20Token(address(new AnyErc20Token("CUPEX", "CUPEX")));
 
     testTokenIn.mint(msg.sender, 1e12 * 1e18);
     testTokenOut.mint(msg.sender, 1e12 * 1e18);
-    ITestErc20Token(address(cupexToken)).mint(msg.sender, 1e12 * 1e18);
+    IAnyErc20Token(address(cupexToken)).mint(msg.sender, 1e12 * 1e18);
 
     createPool(testTokenIn);
     createPool(testTokenOut);
@@ -971,8 +972,8 @@ contract CupexDEX is cupexERC1155, ReentrancyGuard {
   //   public
   //   view
   //   returns (
-  //     ITestErc20Token,
-  //     ITestErc20Token,
+  //     IAnyErc20Token,
+  //     IAnyErc20Token,
   //     IERC20
   //   )
   // {

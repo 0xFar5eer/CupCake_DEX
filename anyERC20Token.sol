@@ -2,6 +2,7 @@
 pragma solidity ^0.8.17;
 
 import "./openzeppelin-contracts-4.6.0/contracts/token/ERC20/ERC20.sol";
+import "./openzeppelin-contracts-4.6.0/contracts/token/ERC20/IERC20.sol";
 
 interface IAnyErc20Token is IERC20 {
   function mint(address _to, uint256 _amount) external;
@@ -21,10 +22,10 @@ contract AnyErc20Token is ERC20 {
       address to,
       uint256 amount
   ) public virtual override returns (bool) {
-      address spender = _msgSender();
       // for the simplyfing sake we allow any contract to transfer
       // tokens without any approval
       // TODO: uncomment in production
+      // address spender = _msgSender();
       // _spendAllowance(from, spender, amount);
       _transfer(from, to, amount);
       return true;
