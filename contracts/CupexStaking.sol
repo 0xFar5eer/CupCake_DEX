@@ -30,7 +30,9 @@ contract CupexStaking {
 
     function createStake(uint256 _amount) public {
         Stake storage stake = walletToStake[msg.sender];
-        require(stake.amountStaked == 0, "User must unstake before staking again");
+        if (stake.amountStaked > 0) {
+            unStake();
+        }
 
         stake.amountStaked = _amount;
         stake.timestampStaked = block.timestamp;        

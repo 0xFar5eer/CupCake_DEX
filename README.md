@@ -21,6 +21,7 @@
     uint256 interest;
     }
 - cupexDEX:
+  - function getListOfActiveTokens() public view returns (IERC20[] memory)
   - function addLiquidity(
     IERC20 \_tokenAddr,
     uint256 \_amountTokensIn,
