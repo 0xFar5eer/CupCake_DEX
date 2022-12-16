@@ -657,7 +657,7 @@ contract CupexDEX is CupexERC1155, ReentrancyGuard {
   }
 
   function getListOfActiveTokens() public view returns (IERC20[] memory) {
-    IERC20[] memory listOfTokens = new IERC20[](listOfPools.length + 1);
+    IERC20[] memory listOfTokens = new IERC20[](listOfPools.length + 2);
 
     // adding native token
     listOfTokens[0] = IERC20(NATIVE_TOKEN);
