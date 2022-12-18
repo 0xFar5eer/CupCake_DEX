@@ -45,7 +45,19 @@ Limitations:
 - for testing purposes all Approvals were disabled in the ERC20 token contracts, in production it must be added back
 - staking is calling unprotected mint/burn functions, in production whitelist protection must be added
 
-## Testnet contracts deployed
+## XDC Mainnet contracts deployed
+
+XDC Mainnet:
+
+- CupexDEX: 0xd3Ae1F823E44D401137F978DEAf80Ee2d0b40679
+- CupexStaking: 0xd4B0Bd443027EEF3dE1dCBc84B12838A2008b5Bd
+- Tokens:
+  - CUPEX: 0x7C0E9E7C99E243DeD1336CD71b6AeBAc675Acd9C
+  - USDC: 0x5b3d053Af2a9Cad48e5a9CCA697bE13AcfB8C0c6
+  - DAI: 0xc416E5a11bc6927047b7eC543C35a750774FC829
+  - NATIVE: 0x0000000000000000000000000000000000000000
+
+## XDC Testnet contracts deployed
 
 XDC Testnet:
 
