@@ -5,6 +5,7 @@ import "./AnyERC20Token.sol";
 import "./IAnyERC20Token.sol";
 import "./CupexERC1155.sol";
 import "./openzeppelin-contracts-4.6.0/contracts/token/ERC20/IERC20.sol";
+import "./openzeppelin-contracts-4.6.0/contracts/token/ERC1155/extensions/IERC1155Supply.sol";
 import "./openzeppelin-contracts-4.6.0/contracts/security/ReentrancyGuard.sol";
 
 contract CupexDEX is CupexERC1155, ReentrancyGuard {
@@ -774,6 +775,21 @@ contract CupexDEX is CupexERC1155, ReentrancyGuard {
     (reservesIn, reservesOut) = getPoolBalances(_tokenIn);
 
     return _getInput(reservesIn, reservesOut, _amountOut);
+  }
+
+  function getLiquidityByTokenAddr(IERC20 _token) public view returns (uint256, uint256) {
+    uint256 reservesToken;
+    uint256 reservesCupex;
+    (reservesToken, reservesCupex) = getPoolBalances(_token);
+
+    uint256 poolId = tokenAddressToPoolId[_token];
+    uint256 userLpBalance = IERC1155(address(this)).balanceOf(msg.sender, poolId);
+    uint256 totalLpBalance = IERC1155Supply(address(this)).totalSupply(poolId);
+
+    uint256 userOwnsTokens = (reservesToken * userLpBalance) / totalLpBalance;
+    uint256 userOwnsCupex = (reservesCupex * userLpBalance) / totalLpBalance;
+
+    return (userOwnsTokens, userOwnsCupex);
   }
 
   function _getOutput(

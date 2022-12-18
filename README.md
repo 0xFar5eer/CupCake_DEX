@@ -44,12 +44,12 @@ Limitations:
 
 XDC Testnet:
 
-- CupexDEX: 0x54CDD5073F94e1Be40BC9AfAdf6D1b7a564c24CC
-- CupexStaking: 0x9D7719BA8A28043016a779b51b2DF3a53378c02b
+- CupexDEX: 0xe4Dff4e7746c905c891C57ae9177295b63181403
+- CupexStaking: 0x15Bd107FfAEeB384671FCE271a93Ed4F8b8250AC
 - Tokens:
-  - CUPEX: 0xf79FE1F343304d634ec21f75c28A58d8518549fD
-  - USDC: 0x49F8D2cFcAE854B9f657bFEf61F8Ad22261eB627
-  - DAI: 0x049D50E7e4FE6ed60365De20b0871770D12A1F57
+  - CUPEX: 0xeF86A8f8AA6F88b9B54ffb7E05D98a27AE7Afaf2
+  - USDC: 0x45889722a25f2368B4a4d5d10DE6F149F297b125
+  - DAI: 0x67BFE1A071E1623713f8E375Fce48f4846013C55
   - NATIVE: 0x0000000000000000000000000000000000000000
 
 ## Useful functions
@@ -65,6 +65,7 @@ XDC Testnet:
     uint256 interest;
     }
 - cupexDEX:
+  - function getLiquidityByTokenAddr(IERC20 \_token) public view returns (uint256, uint256)
   - function getListOfActiveTokens() public view returns (IERC20[] memory)
   - function addLiquidity(
     IERC20 \_tokenAddr,

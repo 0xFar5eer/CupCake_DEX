@@ -1,5 +1,68 @@
 [
   {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "_tokenAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountTokensIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountCupexTokensIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minAmountTokensIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minAmountCupexTokensIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_transferTo",
+        "type": "address"
+      }
+    ],
+    "name": "addLiquidity",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "_tokenAddr",
+        "type": "address"
+      }
+    ],
+    "name": "createPool",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -123,6 +186,134 @@
     "type": "event"
   },
   {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "_tokenAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountOfLiquidityToRemove",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minAmountTokensOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minAmountCupexTokensOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_transferTo",
+        "type": "address"
+      }
+    ],
+    "name": "removeLiquidity",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "ids",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amounts",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "safeBatchTransferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "safeTransferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
+      }
+    ],
+    "name": "setApprovalForAll",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -160,6 +351,84 @@
     "type": "event"
   },
   {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IERC20",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountTokensIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minAmountTokensOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_transferTo",
+        "type": "address"
+      }
+    ],
+    "name": "swapExactTokensForTokens",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IERC20",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxAmountTokensIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountTokensOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_transferTo",
+        "type": "address"
+      }
+    ],
+    "name": "swapTokensForExactTokens",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -183,6 +452,20 @@
     ],
     "name": "Sync",
     "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "test1_CreateTokensAndPools",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "test2_CreateNativeTokenAndPool",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
   },
   {
     "anonymous": false,
@@ -280,50 +563,6 @@
   {
     "inputs": [
       {
-        "internalType": "contract IERC20",
-        "name": "_tokenAddr",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amountTokensIn",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amountCupexTokensIn",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_minAmountTokensIn",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_minAmountCupexTokensIn",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "_transferTo",
-        "type": "address"
-      }
-    ],
-    "name": "addLiquidity",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "address",
         "name": "account",
         "type": "address"
@@ -367,25 +606,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "contract IERC20",
-        "name": "_tokenAddr",
-        "type": "address"
-      }
-    ],
-    "name": "createPool",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -453,6 +673,30 @@
     ],
     "name": "getExactTokensForTokens",
     "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "_token",
+        "type": "address"
+      }
+    ],
+    "name": "getLiquidityByTokenAddr",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
       {
         "internalType": "uint256",
         "name": "",
@@ -616,134 +860,6 @@
   {
     "inputs": [
       {
-        "internalType": "contract IERC20",
-        "name": "_tokenAddr",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amountOfLiquidityToRemove",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_minAmountTokensOut",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_minAmountCupexTokensOut",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "_transferTo",
-        "type": "address"
-      }
-    ],
-    "name": "removeLiquidity",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "ids",
-        "type": "uint256[]"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "amounts",
-        "type": "uint256[]"
-      },
-      {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
-      }
-    ],
-    "name": "safeBatchTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "id",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
-      }
-    ],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-      },
-      {
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-      }
-    ],
-    "name": "setApprovalForAll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "bytes4",
         "name": "interfaceId",
         "type": "bytes4"
@@ -761,84 +877,6 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "contract IERC20",
-        "name": "_tokenIn",
-        "type": "address"
-      },
-      {
-        "internalType": "contract IERC20",
-        "name": "_tokenOut",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amountTokensIn",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_minAmountTokensOut",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "_transferTo",
-        "type": "address"
-      }
-    ],
-    "name": "swapExactTokensForTokens",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "contract IERC20",
-        "name": "_tokenIn",
-        "type": "address"
-      },
-      {
-        "internalType": "contract IERC20",
-        "name": "_tokenOut",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_maxAmountTokensIn",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amountTokensOut",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "_transferTo",
-        "type": "address"
-      }
-    ],
-    "name": "swapTokensForExactTokens",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "symbol",
     "outputs": [
@@ -849,20 +887,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "test1_CreateTokensAndPools",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "test2_CreateNativeTokenAndPool",
-    "outputs": [],
-    "stateMutability": "payable",
     "type": "function"
   },
   {
