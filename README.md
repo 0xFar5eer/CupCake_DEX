@@ -1,4 +1,9 @@
-## Testnet contracts deployed
+## Contacts
+
+- Discord: 0xFar5eer#6504 / AnotherDev#1180
+- Telegram @instarogar / @Someone_Nevv
+
+## Smart Contracts Description
 
 The contract was built completely from scratch following uniswap v2 whitepaper.
 Code was optimized for swaps.
