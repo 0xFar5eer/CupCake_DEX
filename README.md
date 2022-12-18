@@ -25,6 +25,7 @@ The features of this DEX:
 - simple and convenient swapping interface functions for developers
 - single DEX contract hosts ERC1155 Liquidity Provider tokens
 - code is very well commented and should be simple to understand
+- swap fee is static 0.15% per each swap
 - MIT license allows anyone to continue development
 
 Staking option:
