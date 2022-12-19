@@ -5,7 +5,6 @@ import "./AnyERC20Token.sol";
 import "./IAnyERC20Token.sol";
 import "./CupexERC1155.sol";
 import "./openzeppelin-contracts-4.6.0/contracts/token/ERC20/IERC20.sol";
-import "./openzeppelin-contracts-4.6.0/contracts/token/ERC1155/extensions/IERC1155Supply.sol";
 import "./openzeppelin-contracts-4.6.0/contracts/security/ReentrancyGuard.sol";
 
 contract CupexDEX is CupexERC1155, ReentrancyGuard {
@@ -20,6 +19,7 @@ contract CupexDEX is CupexERC1155, ReentrancyGuard {
 
   mapping(IERC20 => uint256) tokenAddressToPoolId;
 
+  uint256 constant PERCENT_DENOMINATOR = 100;
   uint256 constant TRADE_FEE_NOMINATOR = 15; // 0.15% = 15/10,000
   uint256 constant TRADE_FEE_DENOMINATOR = 10_000;
   uint256 constant TRADE_FEE_DENOMINATOR_MINUS_NOMINATOR =
@@ -201,6 +201,32 @@ contract CupexDEX is CupexERC1155, ReentrancyGuard {
     );
 
     return amountOfLiquidityToMint;
+  }
+
+  function removeLiquidityPercent(
+    IERC20 _tokenAddr,
+    uint256 _percentLiquidityToRemove,
+    address _transferTo
+  )
+    public
+    returns (uint256, uint256)
+  {
+    uint256 reservesToken;
+    uint256 reservesCupex;
+    (reservesToken, reservesCupex) = getPoolBalances(_tokenAddr);
+
+    uint256 poolId = tokenAddressToPoolId[_tokenAddr];
+    uint256 userLpBalance = balanceOf(msg.sender, poolId);
+
+    uint256 amountOfLiquidityToRemove = (userLpBalance * _percentLiquidityToRemove) / PERCENT_DENOMINATOR;
+
+    return removeLiquidity(
+      _tokenAddr,
+      amountOfLiquidityToRemove,
+      0,
+      0,
+      _transferTo
+    );
   }
 
   function removeLiquidity(
@@ -783,8 +809,8 @@ contract CupexDEX is CupexERC1155, ReentrancyGuard {
     (reservesToken, reservesCupex) = getPoolBalances(_token);
 
     uint256 poolId = tokenAddressToPoolId[_token];
-    uint256 userLpBalance = IERC1155(address(this)).balanceOf(msg.sender, poolId);
-    uint256 totalLpBalance = IERC1155Supply(address(this)).totalSupply(poolId);
+    uint256 userLpBalance = balanceOf(msg.sender, poolId);
+    uint256 totalLpBalance = totalSupply(poolId);
 
     uint256 userOwnsTokens = (reservesToken * userLpBalance) / totalLpBalance;
     uint256 userOwnsCupex = (reservesCupex * userLpBalance) / totalLpBalance;
