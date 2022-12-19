@@ -82,6 +82,13 @@ XDC Testnet:
     uint256 interest;
     }
 - cupexDEX:
+  - removeLiquidityPercent(
+    IERC20 \_tokenAddr,
+    uint256 \_percentLiquidityToRemove,
+    address \_transferTo
+    )
+    public
+    returns (uint256, uint256)
   - function getLiquidityByTokenAddr(IERC20 \_token) public view returns (uint256, uint256)
   - function getListOfActiveTokens() public view returns (IERC20[] memory)
   - function addLiquidity(
