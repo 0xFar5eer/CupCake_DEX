@@ -86,13 +86,18 @@ function Stake() {
     await updateBalance();
   }
 
+  async function unstakeCupex() {
+    console.log(await createStake(metamaskProvider.getSigner(), "0"));
+    await updateBalance();
+  }
+
   return (
     <div className="flex justify-center items-center flex-col h-screen">
       <div className="indicator">
         <span className="indicator-item indicator-top indicator-end badge bg-green-300 border-green-300 text-gray-700 shadow-xl shadow-green-300/10 mt-16">
           +10% each day
         </span>
-        <div className="card w-96 bg-gradient-to-br from-base-300 via-base-200 to-zinc-900 shadow-xl drop-shadow-2xl shadow-xl mt-10">
+        <div className="card w-96 bg-gradient-to-br from-base-100 via-emerald-900/75 to-base-100 shadow-xl drop-shadow-2xl shadow-xl mt-10">
           <figure>
             <img src="/pie-ge0b41eeba_1280.jpg" alt="cupcake" />
           </figure>
@@ -105,7 +110,7 @@ function Stake() {
                 <div className="stat-figure text-secondary">
                   <button
                     className="btn btn-success w-full"
-                    onClick={() => stakeCupex()}
+                    onClick={() => unstakeCupex()}
                   >
                     Unstake
                   </button>

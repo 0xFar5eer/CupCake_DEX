@@ -280,7 +280,10 @@ function Liquidity() {
     console.log(
       await removeLiquidity(
         metamaskProvider.getSigner(),
-        USDC_TOKEN_ADDRESS,
+        await availableTokens
+          .filter((t) => t.name === selectedSwapTokens[1])
+          .map((t) => t.address)
+          .toString(),
         100,
         window.ethereum.selectedAddress
       )
@@ -290,7 +293,7 @@ function Liquidity() {
 
   return (
     <div className="flex justify-center items-center flex-col h-screen">
-      <div className="card w-96 bg-gradient-to-br from-base-300 via-base-200 to-zinc-900 shadow-xl drop-shadow-2xl shadow-xl mt-16">
+      <div className="card w-96 bg-gradient-to-br from-base-100 via-emerald-900/75 to-base-100 shadow-xl drop-shadow-2xl shadow-xl mt-16">
         <figure>
           <img src="/pie-ge0b41eeba_1280.jpg" alt="Swap" />
         </figure>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useDebounce } from "use-debounce";
 import { signMessage } from "@wagmi/core";
 import { ethers, BigNumber, FixedNumber } from "ethers";
@@ -20,8 +20,11 @@ import {
   NATIVE_TOKEN_ADDRESS,
 } from "../constants";
 import { truncateStr, isFloat } from "../utils/helpers";
+import { Web3ModalContext } from "../contexts/Web3ModalProvider";
 
 function Swap() {
+  const { account, connect, disconnect, chainId, web3 } =
+    useContext(Web3ModalContext);
   const [topToken, setTopToken] = useState("0");
   const [BottomToken, setBottomToken] = useState("0");
   const [TopBalance, setTopBalance] = useState("0");
@@ -67,7 +70,7 @@ function Swap() {
     (async () => {
       await updateBalance();
     })();
-  }, [selectedSwapTokens]);
+  }, [selectedSwapTokens, account]);
 
   async function updateBalance() {
     const tempTopTokens = ethers.utils.formatEther(
@@ -264,7 +267,7 @@ function Swap() {
         <span className="indicator-item indicator-top indicator-end badge bg-green-300 border-green-300 text-gray-700 shadow-xl shadow-green-300/10 mt-24">
           1% slippage
         </span>
-        <div className="card w-96 bg-gradient-to-br from-base-300 via-base-200 to-zinc-900 shadow-xl drop-shadow-2xl mt-16">
+        <div className="card w-96 bg-gradient-to-br from-base-100 via-emerald-900/75 to-base-100 shadow-xl drop-shadow-2xl mt-16">
           <figure className="drop-shadow-2xl">
             <img src="/pie-ge0b41eeba_1280.jpg" alt="Swap" />
           </figure>

@@ -185,7 +185,13 @@ export const removeLiquidity = async (
   try {
     let dexContract = new ethers.Contract(CUPEDEX_ADDRESS, DEX_ABI, signer);
 
-    const userLpBalance = await dexContract.balanceOf(transferTo, 1);
+    let userLpBalance;
+    if (token_addr == USDC_TOKEN_ADDRESS)
+      userLpBalance = await dexContract.balanceOf(transferTo, 1);
+    if (token_addr == DAI_TOKEN_ADDRESS)
+      userLpBalance = await dexContract.balanceOf(transferTo, 2);
+    if (token_addr == NATIVE_TOKEN_ADDRESS)
+      userLpBalance = await dexContract.balanceOf(transferTo, 3);
 
     const tx = await dexContract.removeLiquidity(
       token_addr,
@@ -218,15 +224,6 @@ export const dexAddLiquidity = async (
     let minAmountToSwap = amountToSwap;
     let minAmountAfterSwap = amountAfterSwap;
     let swapContract = new ethers.Contract(CUPEDEX_ADDRESS, DEX_ABI, signer);
-    /*let estimateGas = await swapContract.estimateGas.addLiquidity(
-      SecondTokenToSwapAddress,
-      ethers.utils.parseUnits(amountToSwap.toString(), "ether"),
-      ethers.utils.parseUnits(amountAfterSwap.toString(), "ether"),
-      ethers.utils.parseUnits(amountToSwap.toString(), "ether"),
-      ethers.utils.parseUnits(amountAfterSwap.toString(), "ether"),
-      transferTo
-    );
-    console.log(estimateGas.toNumber());*/
 
     const liquidityMyToken = await swapContract.getLiquidityByTokenAddr(
       SecondTokenToSwapAddress
@@ -250,7 +247,13 @@ export const dexAddLiquidity = async (
     }
 
     const userLpBalance = await swapContract.balanceOf(transferTo, 1);
-    const totalLpBalance = await swapContract.totalSupply(1);
+    let totalLpBalance;
+    if (SecondTokenToSwapAddress == USDC_TOKEN_ADDRESS)
+      totalLpBalance = await swapContract.totalSupply(1);
+    if (SecondTokenToSwapAddress == DAI_TOKEN_ADDRESS)
+      totalLpBalance = await swapContract.totalSupply(2);
+    if (SecondTokenToSwapAddress == NATIVE_TOKEN_ADDRESS)
+      totalLpBalance = await swapContract.totalSupply(3);
     console.log(userLpBalance, totalLpBalance);
     const userOwnsCupex = (reservesToken * userLpBalance) / totalLpBalance;
     const userOwnsTokens = (reservesCupex * userLpBalance) / totalLpBalance;
@@ -258,8 +261,8 @@ export const dexAddLiquidity = async (
 
     const tx = await swapContract.addLiquidity(
       SecondTokenToSwapAddress,
-      ethers.utils.parseUnits(amountToSwap, "ether"),
       ethers.utils.parseUnits(amountAfterSwap, "ether"),
+      ethers.utils.parseUnits(amountToSwap, "ether"),
       ethers.utils.parseUnits("0.0", "ether"),
       ethers.utils.parseUnits("0.0", "ether"),
       transferTo
