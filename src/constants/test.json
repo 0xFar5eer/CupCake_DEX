@@ -1,0 +1,28 @@
+[
+  {
+    "inputs": [],
+    "name": "say",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "_msg",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "test",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "you",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
